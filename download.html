@@ -10,16 +10,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://cdn.staticfile.org/device.js/0.2.7/device.min.js"></script>
         <script type="text/javascript">
-		var _hmt = _hmt || [];
-		(function() {
-		  var hm = document.createElement("script");
-		  hm.src = "https://hm.baidu.com/hm.js?0273d5b2107ce36a8396d7530a5e8a86";
-		  var s = document.getElementsByTagName("script")[0];
-		  s.parentNode.insertBefore(hm, s);
-		})();
-	        if (!device.ios()) {
-		        location.href = "http://s1.shangkatong.com/apk/shangkatong_v3.0.3.0.apk";
-	        }
+      		var _hmt = _hmt || [];
+      		(function() {
+      		  var hm = document.createElement("script");
+      		  hm.src = "https://hm.baidu.com/hm.js?0273d5b2107ce36a8396d7530a5e8a86";
+      		  var s = document.getElementsByTagName("script")[0];
+      		  s.parentNode.insertBefore(hm, s);
+      		})();
+
+          var isWeixin = function() {
+          	var ua = navigator.userAgent.toLowerCase();
+          	if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+          		return true;
+          	} else {
+          		return false;
+          	}
+          };
+
+          if (isWeixin() || device.ios()) {
+            //
+          } else {
+            location.href = "http://s1.shangkatong.com/apk/shangkatong_v3.0.3.0.apk";
+          }
+
         </script>
         <style>
             ::-moz-selection {
@@ -40,10 +53,6 @@
                 background: #f0f0f0;
                 -webkit-text-size-adjust: 100%;
                 -ms-text-size-adjust: 100%;
-            }
-
-            html,
-            input {
                 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             }
 
@@ -58,27 +67,9 @@
                 background: #fcfcfc;
             }
 
-            h1 {
-                margin: 0 10px;
-                font-size: 50px;
-                text-align: center;
-            }
-
-            h1 span {
-                color: #bbb;
-            }
-
-            h3 {
-                margin: 1.5em 0 0.5em;
-            }
-
             p {
                 margin: 1em 0;
-            }
-
-            ul {
-                padding: 0 0 0 40px;
-                margin: 1em 0;
+                text-align: center;
             }
 
             .container {
@@ -90,9 +81,8 @@
     </head>
     <body>
         <div class="container">
-            <h1>抱歉 <span>:(</span></h1>
-            <p>手机APP暂时不支持苹果设备。</p>
-            <p>苹果设备的APP，请关注我们的<a href="http://blog.shangkatong.com/category/updates" title="前往更新公告">更新公告</a>。</p>
+            <p>长按识别小程序码，或使用微信扫码。</p>
+            <p><img src="image/wxapp.jpg" alt="商卡通会员管理系统微信小程序" title="商卡通会员管理系统微信小程序"></p>
         </div>
 </body>
 </html>
